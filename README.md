@@ -38,8 +38,8 @@ Use [react-focus-lock](https://github.com/theKashey/react-focus-lock) to complet
 ## See also
  - [react-locky]() - React event canceler
  - [dom-locky]() - DOM event canceler
- - [react-scrolllock](https://github.com/jossmac/react-scrolllock) - React scroll lock (with one scrollable element support)
- - [scroll-lock]()https://github.com/FL3NKEY/scroll-lock) - DOM scroll lock (with gap support, with one scrollable element support)  
+ - [react-scrolllock](https://github.com/jossmac/react-scrolllock) - React scroll lock
+ - [scroll-lock]()https://github.com/FL3NKEY/scroll-lock) - DOM scroll lock  
 
 # Licence
  MIT
