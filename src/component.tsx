@@ -12,8 +12,8 @@ export interface ScrollLockyProps {
 
 const getStyles = () => `
   body {
-    overflow: hidden;
-    padding-right: ${getGapWidth()}px;
+    overflow: hidden !important;
+    padding-right: ${getGapWidth()}px !important;
   }
   
   .react-scroll-locky {
@@ -27,7 +27,7 @@ export class ScrollLocky extends Component<ScrollLockyProps> {
     return (
       <React.Fragment>
         {enabled && <Style styles={getStyles()}/>}
-        <Locky enabled={!!enabled} className="react-scroll-locky">
+        <Locky enabled={!!enabled} className="react-scroll-locky" group="react-scroll-locky">
           {children}
         </Locky>
       </React.Fragment>
