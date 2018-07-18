@@ -6290,9 +6290,9 @@ react-is@^16.3.1, react-is@^16.4.1:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.1.tgz#d624c4650d2c65dbd52c72622bbf389435d9776e"
 
-react-locky@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/react-locky/-/react-locky-1.3.0.tgz#fec2a3606678b2f0ccea3f106879b2114e4acb99"
+react-locky@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/react-locky/-/react-locky-1.4.1.tgz#c6f15aabd58c4c428d6c29a55a958cc37cf5bd5a"
   dependencies:
     prop-types "15.6.2"
     size-limit "^0.18.1"

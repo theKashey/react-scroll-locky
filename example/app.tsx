@@ -40,6 +40,20 @@ export default class App extends Component <{}, AppState> {
           }}>
             XXX
             XXX
+            XXX
+            <ScrollLocky enabled={!!this.state.counter}>
+              <div style={{
+                position: 'absolute',
+                overflow: 'scroll',
+                width: 200,
+                height: 200,
+                backgroundColor: 'rgba(0,0,0,0.5)'
+              }}>
+                XXX
+                XXX
+                {fill(1000, 1).map(x => <p>{x}****</p>)}
+              </div>
+            </ScrollLocky>
             {fill(1000, 1).map(x => <p>{x}****</p>)}
           </div>
         </ScrollLocky>

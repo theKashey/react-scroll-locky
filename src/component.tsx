@@ -27,7 +27,7 @@ export class ScrollLocky extends Component<ScrollLockyProps> {
     return (
       <React.Fragment>
         {enabled && <Style styles={getStyles()}/>}
-        <Locky enabled={!!enabled} className="react-scroll-locky" group="react-scroll-locky">
+        <Locky enabled={!!enabled} className="react-scroll-locky" leaded group="react-scroll-locky">
           {children}
         </Locky>
       </React.Fragment>

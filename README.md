@@ -10,7 +10,11 @@
 
 👫 Stands more that one instance.
 
-🔥 Support nested scrollable elements.
+🔥 Supports nested scrollable elements.
+
+🤔 Supports nested locks
+
+### Just wrap your content with `<ScrollLocky />` and it block any iterations with the rest of a page. 
 
 All due to [React-Locky](https://github.com/theKashey/react-locky) it uses underneath
 
