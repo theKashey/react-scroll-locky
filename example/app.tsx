@@ -23,18 +23,32 @@ export default class App extends Component <{}, AppState> {
 
   componentDidMount() {
     setInterval(() => {
-      this.setState({counter: this.state.counter ? 0 : 1})
+      //this.setState({counter: this.state.counter ? 0 : 1})
     }, 5000);
+
+    setTimeout(() => {
+      this.setState({counter: this.state.counter ? 0 : 1})
+    }, 1000);
   }
 
   render() {
     return (
       <AppWrapper>
-        <ScrollLocky enabled={!!this.state.counter}>
+        <div style={{
+          position:'absolute',
+          left:0,
+          right:0,
+          top:0,
+          height:50,
+          backgroundColor:'#F00'
+        }}>floating</div>
+        <ScrollLocky gapMode="margin" enabled={!!this.state.counter}>
           <div style={{
             position: 'absolute',
             overflow: 'scroll',
-            width: 300,
+            left:0,
+            right:0,
+            //width: '100%',
             height: 300,
             backgroundColor: 'rgba(0,0,0,0.5)'
           }}>

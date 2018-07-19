@@ -22,6 +22,13 @@ All due to [React-Locky](https://github.com/theKashey/react-locky) it uses under
 
 Just wrap _anything_ with `ScrollLocky`, which accepts only one prop - "enabled"
 
+There is only two pros to configure
+ -  `noRelative` - do not app "position:relative" on body.
+ -  `gapMode=[padding|margin]` - gap policy, you may choose how to generate the gap,
+ it is affects how absolutely positioned elements will work
+    - gapMode="padding" - "right:0" will be on window right (will jump on scroll removal)
+    - gapMode="margin" - "right:0" will be in constant position (will not jump, but leave a gap)
+
 ```js
 import {ScrollLocky} from 'react-scroll-locky';
 
@@ -33,6 +40,9 @@ import {ScrollLocky} from 'react-scroll-locky';
  </ScrollLocky>
 </Modal>   
 ```
+
+# Article
+ There is a medium article about preventing the body scroll - [How to fight the <body> scroll](https://medium.com/@antonkorzunov/how-to-fight-the-body-scroll-2b00267b37ac)
 
 ## More
 
