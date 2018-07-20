@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Component} from 'react';
 import {AppWrapper} from './styled';
-import {ScrollLocky} from "../src";
+import {ScrollLocky, ScrollLockyPane} from "../src";
 import 'babel-polyfill';
 
 export interface AppState {
@@ -23,31 +23,53 @@ export default class App extends Component <{}, AppState> {
 
   componentDidMount() {
     setInterval(() => {
-      //this.setState({counter: this.state.counter ? 0 : 1})
-    }, 5000);
+      this.setState({counter: this.state.counter ? 0 : 1})
+    }, 1000);
 
     setTimeout(() => {
-      this.setState({counter: this.state.counter ? 0 : 1})
+      //this.setState({counter: this.state.counter ? 0 : 1})
     }, 1000);
   }
 
   render() {
+    const gapMode = 'margin';
     return (
       <AppWrapper>
         <div style={{
-          position:'absolute',
-          left:0,
-          right:0,
-          top:0,
-          height:50,
-          backgroundColor:'#F00'
-        }}>floating</div>
-        <ScrollLocky gapMode="margin" enabled={!!this.state.counter}>
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 0,
+          height: 50,
+          backgroundColor: '#F00'
+        }}>floating
+        </div>
+        <ScrollLocky gapMode={gapMode} enabled={!!this.state.counter}>
+          <ScrollLockyPane>
+            <div style={{
+              position: 'absolute',
+              overflow: 'scroll',
+              left: 0,
+              right: 0,
+              //width: '100%',
+              height: 300,
+              backgroundColor: 'rgba(0,0,0,0.5)'
+            }}>
+              XXX
+              XXX
+              XXX
+              {fill(1000, 1).map(x => <p>{x}****</p>)}
+            </div>
+          </ScrollLockyPane>
+        </ScrollLocky>
+
+        <ScrollLocky gapMode={gapMode} enabled={!!this.state.counter}>
           <div style={{
             position: 'absolute',
             overflow: 'scroll',
-            left:0,
-            right:0,
+            left: 0,
+            right: 0,
+            top: 200,
             //width: '100%',
             height: 300,
             backgroundColor: 'rgba(0,0,0,0.5)'

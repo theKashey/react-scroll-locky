@@ -1,3 +1,3 @@
-import {ScrollLocky} from "./component";
+import {ScrollLocky, ScrollLockyPane} from "./component";
 
-export {ScrollLocky}
+export {ScrollLocky, ScrollLockyPane}
