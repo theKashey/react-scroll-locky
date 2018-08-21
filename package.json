@@ -1,7 +1,7 @@
 {
   "name": "react-scroll-locky",
   "description": "Transparently prevents page from being scrolled",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "main": "dist/index.js",
   "author": "Anton Korzunov <thekashey@gmail.com>",
   "license": "MIT",
