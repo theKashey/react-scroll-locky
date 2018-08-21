@@ -63,7 +63,7 @@ export default class App extends Component <{}, AppState> {
           </ScrollLockyPane>
         </ScrollLocky>
 
-        <ScrollLocky gapMode={gapMode} enabled={!!this.state.counter}>
+        <ScrollLocky gapMode={gapMode} enabled={!!this.state.counter} className="test-test">
           <div style={{
             position: 'absolute',
             overflow: 'scroll',

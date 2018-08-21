@@ -11,6 +11,8 @@ export interface ScrollLockyProps {
   gapMode?: GapMode;
   noRelative?: boolean;
   noImportant?: boolean;
+  className?: string,
+  headless?: boolean,
 }
 
 // important tip - once we measure scrollBar width and remove them
@@ -41,15 +43,24 @@ const getStyles = (allowRelative: boolean, gapMode: GapMode, important: string) 
 
 export class ScrollLocky extends Component<ScrollLockyProps> {
   render() {
-    const {enabled = true, children, noRelative, gapMode = 'margin', noImportant} = this.props;
+    const {
+      enabled = true,
+      children,
+      noRelative,
+      gapMode = 'margin',
+      noImportant,
+      className,
+      headless
+    } = this.props;
     return (
       <React.Fragment>
         {enabled && <Style styles={getStyles(!noRelative, gapMode, !noImportant ? "!important" : '')}/>}
         <Locky
           enabled={!!enabled}
-          className={`react-scroll-locky`}
+          className={`react-scroll-locky ${className || ''}`.trim()}
           leaded
           group="react-scroll-locky"
+          headless={headless}
         >
           {children}
         </Locky>
