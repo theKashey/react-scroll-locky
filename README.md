@@ -25,6 +25,8 @@ Just wrap _anything_ with `ScrollLocky`, which accepts only one prop - "enabled"
 There is only a few pros to configure
  -  `noRelative` - do not apply "position:relative" on body.
  -  `noImportant` - do not apply "!important" to any rules.
+ -  `className` - className for a internal div
+ -  `headless` - enables "no-div" mode (will pick the first DOM node-inside)
  -  `enabled` - allow you disable Lock behavior (CSS modification and Locky), keeping it rendered.
  -  `gapMode=[padding|margin(default)]` - gap policy, you may choose how to generate the gap,
  it is affects how absolutely positioned elements will work
