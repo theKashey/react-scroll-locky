@@ -32,6 +32,10 @@ const getStyles = (allowRelative: boolean, gapMode: GapMode, important: string) 
     right: -${getGapWidth(gapMode)}px;
   }
   
+  .react-scroll-locky-edge-right {
+    right: ${getGapWidth(gapMode)}px;
+  }
+  
   .react-scroll-locky-extender .react-scroll-locky-extender {
     right: 0;
   }
