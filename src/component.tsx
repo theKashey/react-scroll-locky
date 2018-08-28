@@ -13,6 +13,7 @@ export interface ScrollLockyProps {
   noImportant?: boolean;
   className?: string,
   headless?: boolean,
+  onEscape?: () => void,
 }
 
 // important tip - once we measure scrollBar width and remove them
@@ -54,7 +55,8 @@ export class ScrollLocky extends Component<ScrollLockyProps> {
       gapMode = 'margin',
       noImportant,
       className,
-      headless
+      headless,
+      onEscape
     } = this.props;
     return (
       <React.Fragment>
@@ -65,6 +67,7 @@ export class ScrollLocky extends Component<ScrollLockyProps> {
           leaded
           group="react-scroll-locky"
           headless={headless}
+          onEscape={onEscape}
         >
           {children}
         </Locky>
