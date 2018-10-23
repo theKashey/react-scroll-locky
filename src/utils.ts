@@ -6,6 +6,16 @@ const getOffset = (gapMode: GapMode) => {
   return parseInt(value || '', 10) || 0;
 };
 
+export const getOffsetTop = () => {
+  if (typeof window === 'undefined') {
+    return 0;
+  }
+  const cs = window.getComputedStyle(document.body);
+  const value = cs.marginTop;
+  return parseInt(value || '', 10) || 0;
+};
+
+
 export const getGapWidth = (gapMode: GapMode) => {
   if (typeof window === 'undefined') {
     return 0;

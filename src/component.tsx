@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Component} from 'react';
 import Locky from 'react-locky';
 import {styleSinglentone} from 'react-style-singleton';
-import {GapMode, getGapWidth} from './utils';
+import {GapMode, getGapWidth, getOffsetTop} from './utils';
 
 const Style = styleSinglentone();
 
@@ -41,7 +41,8 @@ const getStyles = (allowRelative: boolean, gapMode: GapMode, important: string) 
     right: ${getGapWidth(gapMode)}px;
   }
   
-  .react-scroll-locky-extender .react-scroll-locky-extender {
+  .react-scroll-locky-extender .react-scroll-locky-extender,
+  .react-scroll-locky-edge-right. .react-scroll-locky-edge-right {
     right: 0;
   }
   
@@ -51,6 +52,22 @@ const getStyles = (allowRelative: boolean, gapMode: GapMode, important: string) 
 `;
 
 export class ScrollLocky extends Component<ScrollLockyProps> {
+  componentDidMount() {
+    this.check();
+  }
+
+  componentDidUpdate() {
+    this.check();
+  }
+
+  check() {
+    if (process.env.NODE_ENV !== 'production') {
+      if (!this.props.noRelative && getOffsetTop()) {
+        console.error('ScrollLocky expect BODY to have zero margins when noRelative is not set');
+      }
+    }
+  }
+
   render() {
     const {
       enabled = true,

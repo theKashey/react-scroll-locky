@@ -28,8 +28,8 @@ There is only a few pros to configure
  -  `className` - className for a internal div
  -  `headless` - enables "no-div" mode (will pick the first DOM node-inside)
  -  `enabled` - allow you disable Lock behavior (CSS modification and Locky), keeping it rendered.
- -  `gapMode=[padding|margin(default)]` - gap policy, you may choose how to generate the gap,
- it is affects how absolutely positioned elements will work
+ -  `gapMode=[padding|margin(default)]` - gap policy, to control the way scrollLocky generate `the gap` instead of scrollbars.
+This option affects how absolutely positioned elements will work:
     - gapMode="padding" - "right:0" will be on window right (will jump on scroll removal)
     - gapMode="margin" - "right:0" will be in constant position (will not jump, but leave a gap)
 
@@ -57,6 +57,8 @@ import {ScrollLocky} from 'react-scroll-locky';
  
 To _fill_ the gap with `absolute` positioned elements - use another exposed component.
 
+Special component - `ScrollLockyPane` will help maintain the right "right" position.
+Alternatively - use `react-scroll-locky-edge-right` class, to set proper right border for a container.
 ```js
 import {ScrollLocky, ScrollLockyPane} from 'react-scroll-locky';
 
@@ -70,6 +72,8 @@ import {ScrollLocky, ScrollLockyPane} from 'react-scroll-locky';
   </Modal> 
 </ScrollLockyPane>
 ```
+
+
 `ScrollLockyPane` will "return" the "consumed" width to the component.
 
 # Article
@@ -81,6 +85,7 @@ For a good modals you also need a proper Focus Management Library.
 Use [react-focus-lock](https://github.com/theKashey/react-focus-lock) to complete the picture.
 
 ## See also
+ - [react-focus-on](https://github.com/theKashey/react-focus-on) - Finite Modal creator (uses Scroll-Locky) underneath.
  - [react-locky](https://github.com/theKashey/react-locky) - React event canceler
  - [react-scrolllock](https://github.com/jossmac/react-scrolllock) - React scroll lock
  - [scroll-lock](https://github.com/FL3NKEY/scroll-lock) - DOM scroll lock  
