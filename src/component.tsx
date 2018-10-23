@@ -22,9 +22,13 @@ export interface ScrollLockyProps {
 const getStyles = (allowRelative: boolean, gapMode: GapMode, important: string) => `
   body {
     overflow: hidden ${important};
-    ${allowRelative && `position: relative ${important};`}
-    ${gapMode == 'margin' && `margin-right: ${getGapWidth(gapMode)}px ${important};`}
-    ${gapMode == 'padding' && `padding-right: ${getGapWidth(gapMode)}px ${important};`}
+    ${
+  [
+    allowRelative && `position: relative ${important};`,
+    gapMode == 'margin' && `margin-right: ${getGapWidth(gapMode)}px ${important};`,
+    gapMode == 'padding' && `padding-right: ${getGapWidth(gapMode)}px ${important};`,
+  ].filter(Boolean).join('')
+  }
   }
   
   .react-scroll-locky-extender {
