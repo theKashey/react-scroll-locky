@@ -1,13 +1,13 @@
 {
   "name": "react-scroll-locky",
-  "description": "Transparently prevents page from being scrolled",
+  "description": "Smartly prevents page from being scrolled",
   "version": "1.1.5",
-  "main": "dist/index.js",
   "author": "Anton Korzunov <thekashey@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
-    "ts-react-toolbox": "^0.1.15"
+    "size-limit": "^0.21.0",
+    "ts-react-toolbox": "^0.1.22"
   },
   "engines": {
     "node": ">=8.5.0"
@@ -26,10 +26,9 @@
     "analyze": "ts-react-toolbox analyze"
   },
   "peerDependencies": {
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0"
+    "react": "^16.3.0"
   },
-  "types": "dist/index.d.ts",
+  "types": "dist/es5/index.d.ts",
   "files": [
     "dist"
   ],
@@ -44,7 +43,12 @@
   },
   "homepage": "https://github.com/theKashey/react-scroll-locky#readme",
   "dependencies": {
-    "react-locky": "^1.4.4",
+    "react-locky": "^1.5.1",
     "react-style-singleton": "^1.0.1"
-  }
+  },
+  "sideEffects": false,
+  "main": "dist/es5/index.js",
+  "jsnext:main": "dist/es2015/index.js",
+  "module": "dist/es2015/index.js",
+  "repository": "https://github.com/theKashey/react-scroll-locky"
 }

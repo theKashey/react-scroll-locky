@@ -1,6 +1,7 @@
 [
   {
-    path: "dist/index.js",
+    path: "dist/es2015/index.js",
+    ignore: ["react-dom"],
     limit: "4 KB"
   }
 ]
