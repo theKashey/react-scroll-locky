@@ -18,6 +18,9 @@
 
 All due to [React-Locky](https://github.com/theKashey/react-locky) it uses underneath
 
+__this could be dangerous__ for focus state management.
+Consider use more complex library - [react-focus-on](https://github.com/theKashey/react-focus-on) - to handle any edge cases.  
+
 # API
 
 Just wrap _anything_ with `ScrollLocky`, which accepts only one prop - "enabled"
