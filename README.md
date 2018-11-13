@@ -49,6 +49,7 @@ import {ScrollLocky} from 'react-scroll-locky';
 ```
 
 # The order
+You may have more than one _active_ Lock on the page:
  - Only first Lock is `real`. Only it hides the scrollbars.
  - Only the last Lock is `active`. Only last-mounted Locky is working, silencing the rest of a page.
 
@@ -58,7 +59,13 @@ import {ScrollLocky} from 'react-scroll-locky';
  - "margin" - for the advanced use. Will always preserve the gap, letting only the 
  `fixed` positioned elements fill the while page(preffered mode)  
  
-To _fill_ the gap with `absolute` positioned elements - use another exposed component.
+Default Gap Mode is "margin", it would fit for _almost_ anyone.
+But if you have another margin on your body (please dont), or have `width:100%` on the body - it would not.
+
+Then, and only then use `gapMode="padding"`, and dont forget to add `box-sizing: border-box;` to include _paddings_, we are going to set, to your width.
+(and don't send paddings on body, then).
+ 
+ To _fill_ the gap with `absolute` positioned elements - use another exposed component.
 
 Special component - `ScrollLockyPane` will help maintain the right "right" position.
 Alternatively - use `react-scroll-locky-edge-right` class, to set proper right border for a container.
