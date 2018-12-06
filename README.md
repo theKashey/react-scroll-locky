@@ -1,25 +1,30 @@
 # 📜🔒 react-scroll-locky 
 ----
-📜 Prevents page from being scrolled.
+📜 Prevents page from being scrolled. Or any other "not permitted" container.
 
-💡 Hides scrollbars, reserving the space.
+💡 Hides scrollbars, preserving page width.
 
-🤘 Works for any desktop or mobile browser.
+🤘 Works on any desktop or __mobile__ browser.
 
 📦 All features are hidden inside.
 
 👫 Stands more that one instance.
 
-🔥 Supports nested scrollable elements.
-
 🤔 Supports nested locks
 
+🔥 Supports nested scrollable elements.
+
 ### Just wrap your content with `<ScrollLocky />` and it block any iterations with the rest of a page. 
+
+This is one line solution for the problem.
 
 All due to [React-Locky](https://github.com/theKashey/react-locky) it uses underneath
 
 __this could be dangerous__ for focus state management.
-Consider use more complex library - [react-focus-on](https://github.com/theKashey/react-focus-on) - to handle any edge cases.  
+Consider use more _composite_ library - [react-focus-on](https://github.com/theKashey/react-focus-on) - to handle the every edge case.
+- focus
+- scroll
+- aria (inert)  
 
 # API
 
@@ -48,10 +53,19 @@ import {ScrollLocky} from 'react-scroll-locky';
 </Modal>   
 ```
 
+## Hide scrollbars only
+To hide body scrollbars only (does not disable scroll on scrollable container, or body scroll on iOS) use `HideBodyScroll` component
+```js
+import {HideBodyScroll} from 'react-scroll-locky';
+
+<HideBodyScroll noRelative noImportant gapMode/> // body scrollbar is hidden
+```
+
 # The order
 You may have more than one _active_ Lock on the page:
  - Only first Lock is `real`. Only it hides the scrollbars.
  - Only the last Lock is `active`. Only last-mounted Locky is working, silencing the rest of a page.
+ - To have more that one active lock - consider using `HideBodyScroll` + `react-locky` directly.
 
 # Gap modes
  - "padding" - for the simple use. It will keep scroll-bar-gap for the normal elements,
@@ -85,6 +99,10 @@ import {ScrollLocky, ScrollLockyPane} from 'react-scroll-locky';
 
 
 `ScrollLockyPane` will "return" the "consumed" width to the component.
+
+# Multiple locks
+- If you need multiple locks to be active in a same time - just do it. They will work together.
+-  
 
 # Article
  There is a medium article about preventing the body scroll - [How to fight the <body> scroll](https://medium.com/@antonkorzunov/how-to-fight-the-body-scroll-2b00267b37ac)

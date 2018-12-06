@@ -1,4 +1,4 @@
-import {ScrollLocky, ScrollLockyPane, ScrollLockyProps} from "./component";
+import {ScrollLocky, HideBodyScroll, ScrollLockyPane, ScrollLockyProps} from "./component";
 import {getGapWidth} from './utils';
 
-export {ScrollLocky, ScrollLockyProps, ScrollLockyPane, getGapWidth}
+export {ScrollLocky, HideBodyScroll, ScrollLockyProps, ScrollLockyPane, getGapWidth}

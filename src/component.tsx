@@ -6,11 +6,14 @@ import {GapMode, getGapWidth, getOffsetTop} from './utils';
 
 const Style = styleSinglentone();
 
-export interface ScrollLockyProps {
-  enabled?: boolean;
-  gapMode?: GapMode;
+export interface BodyScroll {
   noRelative?: boolean;
   noImportant?: boolean;
+  gapMode?: GapMode;
+}
+
+export interface ScrollLockyProps extends BodyScroll {
+  enabled?: boolean;
   className?: string,
   headless?: boolean,
   onEscape?: () => void,
@@ -51,6 +54,10 @@ const getStyles = (allowRelative: boolean, gapMode: GapMode, important: string) 
   }
 `;
 
+export const HideBodyScroll: React.SFC<BodyScroll> = ({noRelative, noImportant, gapMode  = 'margin'}) => (
+  <Style styles={getStyles(!noRelative, gapMode, !noImportant ? "!important" : '')}/>
+);
+
 export class ScrollLocky extends Component<ScrollLockyProps> {
   componentDidMount() {
     this.check();
@@ -81,7 +88,7 @@ export class ScrollLocky extends Component<ScrollLockyProps> {
     } = this.props;
     return (
       <React.Fragment>
-        {enabled && <Style styles={getStyles(!noRelative, gapMode, !noImportant ? "!important" : '')}/>}
+        {enabled && <HideBodyScroll noImportant={noImportant} noRelative={noRelative} gapMode={gapMode} />}
         <Locky
           enabled={!!enabled}
           className={`react-scroll-locky ${className || ''}`.trim()}

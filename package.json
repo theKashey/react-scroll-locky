@@ -7,7 +7,7 @@
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
     "size-limit": "^0.21.0",
-    "ts-react-toolbox": "^0.1.22"
+    "ts-react-toolbox": "^0.2.2"
   },
   "engines": {
     "node": ">=8.5.0"
@@ -44,7 +44,8 @@
   "homepage": "https://github.com/theKashey/react-scroll-locky#readme",
   "dependencies": {
     "react-locky": "^1.5.1",
-    "react-style-singleton": "^1.0.1"
+    "react-style-singleton": "^1.1.0",
+    "tslib": "^1.0.0"
   },
   "sideEffects": false,
   "main": "dist/es5/index.js",

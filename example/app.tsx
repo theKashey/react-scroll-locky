@@ -85,8 +85,8 @@ export default class App extends Component <{}, AppState> {
                 height: 200,
                 backgroundColor: 'rgba(0,0,0,0.5)'
               }}>
-                XXX
-                XXX
+                ZZZ
+                ZZZ
                 {fill(1000, 1).map(x => <p>{x}****</p>)}
               </div>
             </ScrollLocky>
