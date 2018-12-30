@@ -23,14 +23,14 @@ export interface ScrollLockyProps extends BodyScroll {
 // important tip - once we measure scrollBar width and remove them
 // we could not repeat this operation
 // thus we are using style-singleton - only the first "yet correct" style will be applied.
-const getStyles = (allowRelative: boolean, gapMode: GapMode, important: string) => `
+const getStyles = (gap: number, allowRelative: boolean, gapMode: GapMode, important: string) => `
   body {
     overflow: hidden ${important};
     ${
   [
     allowRelative && `position: relative ${important};`,
-    gapMode == 'margin' && `margin-right: ${getGapWidth(gapMode)}px ${important};`,
-    gapMode == 'padding' && `padding-right: ${getGapWidth(gapMode)}px ${important};`,
+    gapMode == 'margin' && `margin-right: ${gap}px ${important};`,
+    gapMode == 'padding' && `padding-right: ${gap}px ${important};`,
   ].filter(Boolean).join('')
   }
   }
@@ -38,11 +38,11 @@ const getStyles = (allowRelative: boolean, gapMode: GapMode, important: string) 
   .react-scroll-locky-extender {
     position: absolute;    
     left: 0;    
-    right: -${getGapWidth(gapMode)}px;
+    right: -${gap}px;
   }
   
   .react-scroll-locky-edge-right {
-    right: ${getGapWidth(gapMode)}px;
+    right: ${gap}px;
   }
   
   .react-scroll-locky-extender .react-scroll-locky-extender,
@@ -55,9 +55,12 @@ const getStyles = (allowRelative: boolean, gapMode: GapMode, important: string) 
   }
 `;
 
-export const HideBodyScroll: React.SFC<BodyScroll> = ({noRelative, noImportant, gapMode  = 'margin'}) => (
-  <Style styles={getStyles(!noRelative, gapMode, !noImportant ? "!important" : '')}/>
-);
+export const HideBodyScroll: React.SFC<BodyScroll> = ({noRelative, noImportant, gapMode = 'margin'}) => {
+  const gap = getGapWidth(gapMode);
+  return gap
+    ? <Style styles={getStyles(gap, !noRelative, gapMode, !noImportant ? "!important" : '')}/>
+    : null;
+}
 
 export class ScrollLocky extends Component<ScrollLockyProps> {
   componentDidMount() {
@@ -90,7 +93,8 @@ export class ScrollLocky extends Component<ScrollLockyProps> {
     } = this.props;
     return (
       <React.Fragment>
-        {enabled && hideBodyScroll && <HideBodyScroll noImportant={noImportant} noRelative={noRelative} gapMode={gapMode} />}
+        {enabled && hideBodyScroll &&
+        <HideBodyScroll noImportant={noImportant} noRelative={noRelative} gapMode={gapMode}/>}
         <Locky
           enabled={!!enabled}
           className={`react-scroll-locky ${className || ''}`.trim()}
