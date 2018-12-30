@@ -14,6 +14,7 @@ export interface BodyScroll {
 
 export interface ScrollLockyProps extends BodyScroll {
   enabled?: boolean;
+  hideBodyScroll?: boolean;
   className?: string,
   headless?: boolean,
   onEscape?: (Event: UIEvent) => void,
@@ -78,6 +79,7 @@ export class ScrollLocky extends Component<ScrollLockyProps> {
   render() {
     const {
       enabled = true,
+      hideBodyScroll = true,
       children,
       noRelative,
       gapMode = 'margin',
@@ -88,7 +90,7 @@ export class ScrollLocky extends Component<ScrollLockyProps> {
     } = this.props;
     return (
       <React.Fragment>
-        {enabled && <HideBodyScroll noImportant={noImportant} noRelative={noRelative} gapMode={gapMode} />}
+        {enabled && hideBodyScroll && <HideBodyScroll noImportant={noImportant} noRelative={noRelative} gapMode={gapMode} />}
         <Locky
           enabled={!!enabled}
           className={`react-scroll-locky ${className || ''}`.trim()}
