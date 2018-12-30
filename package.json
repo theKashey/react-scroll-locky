@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/theKashey/react-scroll-locky#readme",
   "dependencies": {
-    "react-locky": "^1.5.1",
+    "react-locky": "^1.5.2",
     "react-style-singleton": "^1.1.0",
     "tslib": "^1.0.0"
   },

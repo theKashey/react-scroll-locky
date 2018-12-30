@@ -16,7 +16,7 @@ export interface ScrollLockyProps extends BodyScroll {
   enabled?: boolean;
   className?: string,
   headless?: boolean,
-  onEscape?: () => void,
+  onEscape?: (Event: UIEvent) => void,
 }
 
 // important tip - once we measure scrollBar width and remove them
