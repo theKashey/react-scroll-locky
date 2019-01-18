@@ -35,7 +35,9 @@ There is only a few pros to configure
  -  `noImportant` - do not apply "!important" to any rules.
  -  `className` - className for a internal div
  -  `headless` - enables "no-div" mode (will pick the first DOM node-inside)
- -  `enabled` - allow you disable Lock behavior (CSS modification and Locky), keeping it rendered.
+ -  `enabled` - allows to disable Lock behavior (CSS modification and Locky), keeping it rendered.
+ -  `isolation` - allows to disable event isolation, preventing only `scroll` events, not everything outside target node (default behaviour).
+ Use `isolation:false` if you have some "shadow" underneath modal, to catch and redirect all events. 
  -  `gapMode=[padding|margin(default)]` - gap policy, to control the way scrollLocky generate `the gap` instead of scrollbars.
 This option affects how absolutely positioned elements will work:
     - gapMode="padding" - "right:0" will be on window right (will jump on scroll removal)

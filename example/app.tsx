@@ -18,12 +18,12 @@ const fill = (x: number, y: number) => {
 
 export default class App extends Component <{}, AppState> {
   state: AppState = {
-    counter: 0
+    counter: 1
   };
 
   componentDidMount() {
     setInterval(() => {
-      this.setState({counter: this.state.counter ? 0 : 1})
+      //this.setState({counter: this.state.counter ? 0 : 1})
     }, 1000);
 
     setTimeout(() => {
@@ -44,7 +44,7 @@ export default class App extends Component <{}, AppState> {
           backgroundColor: '#F00'
         }}>floating
         </div>
-        <ScrollLocky gapMode={gapMode} enabled={!!this.state.counter}>
+        <ScrollLocky gapMode={gapMode} enabled={!!this.state.counter} isolation={false}>
           <ScrollLockyPane>
             <div style={{
               position: 'absolute',
@@ -63,7 +63,7 @@ export default class App extends Component <{}, AppState> {
           </ScrollLockyPane>
         </ScrollLocky>
 
-        <ScrollLocky gapMode={gapMode} enabled={!!this.state.counter} className="test-test">
+        <ScrollLocky gapMode={gapMode} enabled={!!this.state.counter} className="test-test" isolation={false}>
           <div style={{
             position: 'absolute',
             overflow: 'scroll',
@@ -77,7 +77,7 @@ export default class App extends Component <{}, AppState> {
             XXX
             XXX
             XXX
-            <ScrollLocky enabled={!!this.state.counter}>
+            <ScrollLocky enabled={!!this.state.counter} isolation={false}>
               <div style={{
                 position: 'absolute',
                 overflow: 'scroll',

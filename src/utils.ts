@@ -16,7 +16,7 @@ export const getOffsetTop = () => {
 };
 
 
-export const getGapWidth = (gapMode: GapMode) => {
+export const getGapWidth = (gapMode: GapMode = 'margin') => {
   if (typeof window === 'undefined') {
     return 0;
   }

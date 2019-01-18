@@ -18,12 +18,13 @@ export interface ScrollLockyProps extends BodyScroll {
   className?: string,
   headless?: boolean,
   onEscape?: (Event: UIEvent) => void,
+  isolation?: boolean;
 }
 
 // important tip - once we measure scrollBar width and remove them
 // we could not repeat this operation
 // thus we are using style-singleton - only the first "yet correct" style will be applied.
-const getStyles = (gap: number, allowRelative: boolean, gapMode: GapMode, important: string) => `
+const getStyles = (gap: number, allowRelative: boolean, gapMode: GapMode = 'margin', important: string) => `
   body {
     overflow: hidden ${important};
     ${
@@ -55,11 +56,28 @@ const getStyles = (gap: number, allowRelative: boolean, gapMode: GapMode, import
   }
 `;
 
-export const HideBodyScroll: React.SFC<BodyScroll> = ({noRelative, noImportant, gapMode = 'margin'}) => {
-  const gap = getGapWidth(gapMode);
-  return gap
-    ? <Style styles={getStyles(gap, !noRelative, gapMode, !noImportant ? "!important" : '')}/>
-    : null;
+export class HideBodyScroll extends React.Component<BodyScroll, { gap: number }> {
+  state = {
+    gap: getGapWidth(this.props.gapMode)
+  };
+
+  componentDidMount() {
+    const gap = getGapWidth(this.props.gapMode);
+    if (gap !== this.state.gap) {
+      this.setState({
+        gap
+      })
+    }
+  }
+
+  render() {
+    const {noRelative, noImportant, gapMode} = this.props;
+    const {gap} = this.state
+
+    return gap
+      ? <Style styles={getStyles(gap, !noRelative, gapMode, !noImportant ? "!important" : '')}/>
+      : null;
+  }
 }
 
 export class ScrollLocky extends Component<ScrollLockyProps> {
@@ -89,8 +107,23 @@ export class ScrollLocky extends Component<ScrollLockyProps> {
       noImportant,
       className,
       headless,
-      onEscape
+      onEscape,
+      isolation = true,
     } = this.props;
+
+    const lockProps = isolation
+      ? {}
+      : {
+        noDefault: true,
+        events: {
+          scroll: true,
+          wheel: true,
+          touchmove: true,
+          touchstart: 'report-only',
+          click: "report-only",
+        } as any
+      };
+
     return (
       <React.Fragment>
         {enabled && hideBodyScroll &&
@@ -102,6 +135,7 @@ export class ScrollLocky extends Component<ScrollLockyProps> {
           group="react-scroll-locky"
           headless={headless}
           onEscape={onEscape}
+          {...lockProps}
         >
           {children}
         </Locky>
