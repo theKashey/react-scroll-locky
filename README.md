@@ -26,6 +26,9 @@ Consider use more _composite_ library - [react-focus-on](https://github.com/theK
 - scroll
 - aria (inert)  
 
+# PS
+I've create [react-remove-scroll](https://github.com/theKashey/react-remove-scroll) - a smaller version of this library.
+
 # API
 
 Just wrap _anything_ with `ScrollLocky`, which accepts only one prop - "enabled"
