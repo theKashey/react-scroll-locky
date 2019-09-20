@@ -1,3 +1,5 @@
+> 💀 react-scroll-locky was replaced by [react-remove-scroll](https://github.com/theKashey/react-remove-scroll) 💀 
+
 # 📜🔒 react-scroll-locky 
 ----
 📜 Prevents page from being scrolled. Or any other "not permitted" container.
